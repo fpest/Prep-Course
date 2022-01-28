@@ -10,7 +10,30 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+
+   var matriz = []
+   for (clave in objeto){
+   matriz.push([clave, objeto[clave]])
+  
+  }
+
+   console.log(matriz)
+   return matriz
+//return Object.entries(objeto)
+
 }
+deObjetoAmatriz({D: 1,
+  B: 2,
+  C: 3}
+)
+
+
+
+
+
+
+
+
 
 
 function numberOfCharacters(string) {
@@ -18,7 +41,25 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+
+  objeto = {}
+
+  for (let j= 0 ; j < string.length ; j++){
+  var contador = 0 
+  for (let i= 0 ; i < string.length ; i++){
+
+    if (string[j]==string[i]) contador++
+
+    
+  }
+  objeto[string[j]]=contador
+  
 }
+return objeto
+
+}
+//numberOfCharacters("hola")
+//console.log(objeto)
 
 
 function capToFront(s) {
@@ -26,6 +67,17 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+
+  resultMay = ""
+  resultMin = ""
+  for (let i= 0 ; i < s.length ; i++){
+
+    if (s[i]===s[i].toUpperCase()) resultMay = resultMay + s[i]
+    else resultMin = resultMin + s[i]
+    
+  }
+  console.log(resultMay+resultMin)
+return resultMay+resultMin
 }
 
 
@@ -35,6 +87,28 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+
+  result = ""
+  mirror = ""
+  palabra = []
+  contador = 0
+  for (let i= 0 ; i < str.length ; i++){
+    
+    if (str[i]===" ") {
+      result = result + " "
+      palabra[contador] = result
+      result = ""
+      contador++
+      }
+      else {
+        result = str[i] + result
+      }
+     }
+     palabra[contador] = result
+     for (let i= 0 ; i < contador + 1 ; i++) mirror = mirror + palabra[i]
+  
+      console.log(mirror)
+  return mirror
 } 
 
 
@@ -43,6 +117,16 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+numeroStr = numero + ""
+invertido = ""
+for (let i= 0 ; i < numeroStr.length ; i++){
+
+  invertido = numeroStr[i] + invertido
+
+}
+if (invertido==numeroStr) return "Es capicua"
+else return "No es capicua"
+
 }
 
 
@@ -50,6 +134,12 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+
+  cadena = cadena.replace("a","")
+  cadena = cadena.replace("b","")
+  cadena = cadena.replace("c","")
+  return cadena
+  
 }
 
 
@@ -57,7 +147,14 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+
+ var nuevoArray = arr.sort(function(a,b){
+   return a.length - b.length
+ })
+ return nuevoArray
 }
+
+
 
 
 function buscoInterseccion(arreglo1, arreglo2){
@@ -66,7 +163,25 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
-}
+
+  final = []
+  indice = 0 
+  for (a1 in arreglo1){
+
+      for (a2 in arreglo2){
+        if (arreglo1[a1]==arreglo2[a2]){ 
+          final[indice] = arreglo1[a1]
+          console.log(final[indice])
+          console.log(indice)
+          indice++
+        }
+      }
+    }
+    return final
+  }
+
+
+
 
 
 
